@@ -2,6 +2,35 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[4.0.0] - 2023-11-02
+-------------------------
+##### Removed
+- Support for NodeJS 16.
+
+##### Changed
+- Updated dependencies.
+- Switched to installation with **yarn** instead of npm.
+- Added support for modern npm versions.
+
+[3.0.1] - 2023-07-11
+-------------------------
+##### Added
+- Support for linux/arm64.
+
+[3.0.0] - 2023-07-10
+-------------------------
+##### Removed
+- Support for NodeJS 14.
+
+##### Changed
+- Updated dependencies.
+- Improved performance when using this library as a JS module and during running of tests by not instantiating multiple headless Chrome (puppeteer) instances.
+
+[2.1.2] - 2023-03-01
+--------------------------
+##### Changed
+- Updated dependencies.
+
 [2.1.1] - 2023-02-03
 --------------------------
 ##### Changed

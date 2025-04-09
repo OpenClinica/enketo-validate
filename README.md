@@ -17,8 +17,7 @@ Live demo web application (meant for testing purposes only) that uses Enketo Val
 
 ## Prerequisites
 
-1. install nodeJS 14 or 16
-2. if npm is not version 6, downgrade with `npm i -g npm@6` (but you could check first if still necessary)
+1. install Node 18 or 20 and Yarn 1 ("classic")
 2. (if necessary) install build tools for native modules with `apt-get install build-essential`
 3. (if necessary) install puppeteer (headless Chrome) prerequisites as mentioned [here](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix), e.g. for Ubuntu/Debian do `apt-get install ca-certificates fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils`
 
@@ -26,12 +25,7 @@ Live demo web application (meant for testing purposes only) that uses Enketo Val
 
 #### Command-line Install
 
-To make the `enketo-validate` command available from any folder on your machine.
-```bash
-$ npm install -g --production enketo-validate
-```
-
-Alternatively, you can clone the repo and run `npm install --production`. This will make the `./validate` command available from within the clone folder. Running `npm link` makes the `enketo-validate` command available from any folder on your machine.
+Clone the repo and run `yarn install --production`. This will make the `./validate` command available from within the clone folder. Running `yarn link` makes the `enketo-validate` command available from any folder on your machine.
 
 #### Command-line Use
 
@@ -46,16 +40,22 @@ Errors are returned to `stderr` and warnings to `stdout`. If there is no `stderr
 $ enketo-validate --help
 ```
 
-#### Command-line update
-
-1. `npm install -g --production enketo-validate`
-
 ## As NodeJS module
 
 #### Module installation
 
+Add the following yarn resolutions to package.json:
+
+```json
+"resolutions": {
+    "nan": "^2.17.0",
+    "libxslt/nan": "^2.17.0",
+    "node1-libxmljsmt-myh/nan": "^2.17.0"
+},
+```
+
 ```bash
-npm install enketo-validate --save
+yarn add enketo-validate
 ```
 
 #### Module Use
@@ -83,7 +83,7 @@ const result = validator.validate( xformStr, options );
 ## Develop
 
 1. Clone repo and install [prerequisites](#prerequisites).
-2. Run `npm install`. If there is an error the first thing to do is to run `rm -R node_modules` and retry especially after changing Node versions or after earlier crashes during installation.
+2. Run `yarn install`. If there is an error the first thing to do is to run `rm -R node_modules` and retry especially after changing Node versions or after earlier crashes during installation.
 3. Run via command line, e.g. `./validate test/xform/xpath-fails.xml` or `./validate --help`.
 
 ## How it works

@@ -9,7 +9,8 @@ class BrowserHandler {
         const launchBrowser = async() => {
             this.browser = false;
             this.browser = await puppeteer.launch( {
-                headless: 'new',
+                headless: 'old',
+				args:['--no-sandbox'],
                 devtools: false
             } );
             this.browser.on( 'disconnected', launchBrowser );
